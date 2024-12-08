@@ -1,0 +1,66 @@
+.booking-card-container{
+display: flex;
+background-color: #f3f3f3;
+border-radius: 12px;
+width: 90vw;
+margin: 24px auto;
+padding: 24px;
+}
+
+
+.booking-card-left{
+    padding: 12px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.booking-card-room-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.booking-card-container img{
+    width: 100%;
+    border-radius: 6px;
+}
+
+.booking-card-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 8px;
+}
+.booking-card-right h1{
+    font-size: 1.625rem !important;
+    font-weight: 500;
+    color: black !important;
+}
+.booking-card-right hr{
+    height: 2px;
+    width: 60%;
+}
+.booking-card-right > div > :nth-child(1){
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #5e5e5e;
+}
+
+.booking-card-right > div > :nth-child(2){
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5e5e5e;
+}
+
+.booking-card-right button{
+    color: white !important;
+    padding: 6px 12px;
+    border: none;
+    background-color: #65aef2;
+    font-weight: 600;
+    border-radius: 6px;
+    margin: 12px;
+    cursor: pointer;
+}

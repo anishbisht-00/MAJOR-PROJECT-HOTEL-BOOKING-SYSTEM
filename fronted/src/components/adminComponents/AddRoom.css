@@ -1,0 +1,47 @@
+.admin-add-room{
+    background-color: #e9f3f6;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 60%;
+    margin: 32px auto;
+    border-radius: 8px;
+}
+
+.admin-add-room h1{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+
+.room-inputs > div{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 2px;
+    width: 50%;
+}
+
+.room-inputs > div :nth-child(1){
+    font-size: 1rem;
+    font-weight: 400;
+    color: #5e5e5e;
+}
+
+.room-inputs input{
+    padding: 8px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #5e5e5e;
+}
+
+.admin-add-room button{
+    padding: 6px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #65aef2;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+}
