@@ -15,7 +15,7 @@ const Contact = () => {
             <h2>By Phone</h2>
             <p>Monday to Friday, 10am to 5pm</p>
             <span>Contact Number : </span>
-            <span>+91 879-268-3624</span>
+            <span>+91 879-168-3624</span>
 
           </div>
           <div className="by-mail">
