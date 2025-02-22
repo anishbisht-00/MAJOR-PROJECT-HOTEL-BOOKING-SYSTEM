@@ -21,6 +21,9 @@ const userSchema = mongoose.Schema({
     gender:{
         type:String
     },
+    mobileNumber:{
+        type:String
+    },
     password: {
         type: String,
         required: [true, 'Password is required']
