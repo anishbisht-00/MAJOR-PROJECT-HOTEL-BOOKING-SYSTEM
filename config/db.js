@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mongoURL = 'mongodb+srv://anish1:anish123@cluster0.jwevr.mongodb.net/CheckIn'
+const mongoURL = 'mongodb+srv://gpgauchar83:XLm3fE7AvhsL7tYc@cluster0.yym9e.mongodb.net/checkin'
 mongoose.connect(mongoURL)
 
 const connection = mongoose.connection
