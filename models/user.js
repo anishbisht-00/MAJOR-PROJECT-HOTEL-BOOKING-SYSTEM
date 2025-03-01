@@ -9,20 +9,24 @@ const userSchema = mongoose.Schema({
         required: [true, 'Username is required']
     },
     profilePic:{
-        type:String
+        type:String,
+        default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
     },
     email: {
         type: String,
         required: [true, 'Email is required']
     },
     address:{
-        type:String
+        type:String,
+        default:"Not Specified"
     },
     gender:{
-        type:String
+        type:String,
+        default:"Not Specified"
     },
     mobileNumber:{
-        type:String
+        type:String,
+        default:"+91 0000000000"
     },
     password: {
         type: String,
@@ -32,7 +36,7 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    isManger:{
+    isManager:{
         type:Boolean,
         default:false
     }                                                                                                                                                         
