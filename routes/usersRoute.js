@@ -64,18 +64,16 @@ router.post('/update', async (req, res) => {
         }
         const updatedUser = await User.findByIdAndUpdate(
             _id,
-            name,
+            {name,
             username,
             profilePic,
             email,
             address,
             gender,
-            mobileNumber,
+            mobileNumber},
             { new: true }
         )
-        if (!updatedUser) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
+
         res.json({ success: true, message: "User updated successfully", user: updatedUser });
     } catch (error) {
         console.error("Error updating user:", error);

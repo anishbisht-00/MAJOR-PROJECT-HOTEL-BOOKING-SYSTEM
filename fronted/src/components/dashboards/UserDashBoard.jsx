@@ -49,10 +49,12 @@ const UserDashBoard = () => {
     setEditMode(true)
   }
 
+
   // save profile button handler
   const saveButtonHandler = async () => {
-    const user = {
-      _id: user._id,
+    console.log(user)
+    const updateUser = {
+      _id : user._id,
       name,
       username,
       profilePic,
@@ -63,8 +65,8 @@ const UserDashBoard = () => {
 
     }
     try {
-      const result = (await axios.post('/api/users/update', user)).data
-      console.log(result.data.message)
+      const result = (await axios.post('/api/users/update', updateUser)).data
+      console.log(result.message)
     } catch (error) {
       alert('Something went wrong please try again later.')
     }
@@ -80,7 +82,12 @@ const UserDashBoard = () => {
       <div className="main">
         {/* Left section of user profile */}
         {editMode ? (
-          <form className="left-section">
+          <form 
+          onSubmit={(e) => {
+            e.preventDefault()
+           
+          }}
+          className="left-section">
 
             {/* Usernames and display picture */}
             <div className="user-dp">
