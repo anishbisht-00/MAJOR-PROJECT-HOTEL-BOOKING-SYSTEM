@@ -51,28 +51,34 @@ const UserDashBoard = () => {
 
 
   // save profile button handler
-  const saveButtonHandler = async () => {
-    console.log(user)
-    const updateUser = {
-      _id : user._id,
-      name,
-      username,
-      profilePic,
-      email,
-      address,
-      gender,
-      mobileNumber
+ const saveButtonHandler = async () => {
+  console.log(user);
+  const updatedUser = {
+    _id: user._id,
+    name,
+    username,
+    profilePic,
+    email,
+    address,
+    gender,
+    mobileNumber,
+  };
 
-    }
-    try {
-      const result = (await axios.post('/api/users/update', updateUser)).data
-      console.log(result.message)
-    } catch (error) {
-      alert('Something went wrong please try again later.')
-    }
+  try {
+    const result = (await axios.post('/api/users/update', updatedUser)).data;
 
-    setEditMode(false)
+
+
+    // Update localStorage with the new user data
+    localStorage.setItem("currentUser", JSON.stringify(result.user));
+    
+    // Optionally, update the state as well
+    setEditMode(false);
+  } catch (error) {
+    alert('Something went wrong, please try again later.');
   }
+};
+
 
   return (
 
@@ -184,14 +190,14 @@ const UserDashBoard = () => {
                 <img src={user.profilePic} alt="User" />
               </div>
               <div className="user-display-name">{user.name} </div>
-              <div className="user-name gray"> {(user.username).toLowerCase().split(" ").join("")} </div>
+              <div className="user-name gray"> {(user.name).toLowerCase().split(" ").join("")} </div>
             </div>
 
             {/* User basic information */}
             <div className="user-info">
               <div className="user-full-name">
                 <span>Name </span>
-                <span className="gray">{user.username}</span>
+                <span className="gray">{user.name}</span>
               </div>
               <hr />
               <div className="user-email">
