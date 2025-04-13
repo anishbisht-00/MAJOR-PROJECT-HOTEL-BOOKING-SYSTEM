@@ -1,0 +1,92 @@
+/* css for card container 1 */
+.card-container1 {
+    display: flex;
+    width: 80vw;
+    margin: 32px auto;
+    background: #f3f3f3;
+    border-radius: 6px;
+    padding: 12px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-box1 {
+    width: 30%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-box2,
+.card-box3 {
+    display: flex;
+    width: 30%;
+    height: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* css for card contianer 2 */
+.card-container2 {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ margin: 32px auto;
+ width: 80vw;
+ background: #f3f3f3;
+ border-radius: 6px;
+ padding: 24px;
+
+}
+
+.card-container2 h2 {
+    color: #65aef2;
+    font-size: 1.25rem;
+}
+
+.title > h2{
+    font-weight: 500;
+}
+
+.title2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title2 > h1{
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.title2 > h2{
+    font-weight: 600;
+}
+
+.description  p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1e1e1e;
+}
+
+.card-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin: 48px auto;
+}
+
+.card-container div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.home-search{
+    width: 60vw;
+    margin: auto;
+}
