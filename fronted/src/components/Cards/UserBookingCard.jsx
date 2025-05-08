@@ -61,13 +61,23 @@ const UserBookingCard = (props) => {
                 </div>
                 <div className="user-booking-card-bookingStatus">
                 <span>Booking Status : </span>
-                <span>{props.bookingStatus == 'booked' ? (<h3 className='bg-green'> Confirmed</h3> ) : (<h3 className='bg-red'> Cancelled</h3> )}</span>
+                <span>
+    {props.bookingStatus === 'booked' ? (
+        <h3 className='bg-green'>Confirmed</h3>
+    ) : props.bookingStatus === 'cancelled' ? (
+        <h3 className='bg-red'>Cancelled</h3>
+    ) : props.bookingStatus === 'bookingExpired' ? (
+        <h3 className='bg-gray'>Booking Expired</h3>
+    ) : null}
+</span>
+
                 </div>
-                {props.bookingStatus != 'cancelled' && (
-                    <div className="user-booking-card-cancel-btn">
-                    <button id='cancel-btn' onClick={()=>{cancelButtonHandler(props.bookingId, props.roomid)}} >Cancel</button>
-                </div>)}
-                
+                {props.bookingStatus !== 'cancelled' && props.bookingStatus !== 'bookingExpired' && (
+    <div className="user-booking-card-cancel-btn">
+        <button id='cancel-btn' onClick={() => { cancelButtonHandler(props.bookingId, props.roomid) }}>Cancel</button>
+    </div>
+)}
+
             </div>
         </>
     )
