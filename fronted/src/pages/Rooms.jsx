@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react'
 import HeaderType2 from '../components/header/HeaderType2'
 import './Room.css'
 import axios from 'axios'
+<<<<<<< HEAD
+=======
+import { data } from 'react-router-dom'
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 import RoomCard from '../components/Cards/RoomCard'
 import SearchCard from '../components/Cards/SearchCard'
 import moment from 'moment'
 
+<<<<<<< HEAD
 const Rooms = () => {
   const [rooms, setRooms] = useState([])
   const [duplicaterooms, setDuplicaterooms] = useState([])
@@ -15,6 +20,23 @@ const Rooms = () => {
   const [searchKey, setSearchKey] = useState('')
   const [from, setFrom] = useState()
   const [to, setTo] = useState()
+=======
+
+
+
+const Rooms = () => {
+
+  const [rooms, setRooms] = useState([])
+  const [loading, setLoading] = useState()
+  const [error, setError] = useState()
+
+
+  const [from, setFrom] = useState()
+  const [to, setTo] = useState()
+  const [duplicaterooms, setDuplicaterooms] = useState([])
+
+
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 
   useEffect(() => {
     const fetchRooms = async () => {
@@ -32,6 +54,7 @@ const Rooms = () => {
       }
     };
 
+<<<<<<< HEAD
     fetchRooms();
   }, [])
 
@@ -94,11 +117,74 @@ const Rooms = () => {
     setSearchKey(key);
     filterRooms(key, from, to); // Filter rooms when search key changes
   };
+=======
+    fetchRooms(); // Call the async function inside useEffect
+
+  }, [])
+
+  const handleDataFromChild = (newFrom, newTo) => {
+  
+    // Set the new dates
+    setFrom(newFrom);
+    setTo(newTo);
+    
+    let temprooms = []
+    let availability = false;
+    // Debugging logs
+    console.log("New From Date:", newFrom);
+    console.log("New To Date:", newTo);
+
+    // Iterate through duplicate rooms
+    for (const room of duplicaterooms) {
+      // Check if there are any current bookings
+      if (room.currentBookings && room.currentBookings.length > 0) {
+        console.log("Current Bookings for Room:", room.currentBookings);
+
+        // Iterate through each booking
+        for (const booking of room.currentBookings) {
+          const bookedFrom = moment(booking.fromDate, 'YYYY-MM-DD'); // Ensure date format
+          const bookedTo = moment(booking.toDate, 'YYYY-MM-DD');
+          const parsedNewFrom = moment(newFrom, 'YYYY-MM-DD'); // Parse newFrom
+          const parsedNewTo = moment(newTo, 'YYYY-MM-DD'); // Parse newTo
+
+          // Debugging logs for booked dates
+          console.log("Booking Start Date:", bookedFrom.format('YYYY-MM-DD'));
+          console.log("Booking End Date:", bookedTo.format('YYYY-MM-DD'));
+
+          // Check if the new dates conflict with the booked dates
+          if (
+            parsedNewFrom.isBetween(bookedFrom, bookedTo, null, '[]') || // Check for overlap
+            parsedNewTo.isBetween(bookedFrom, bookedTo, null, '[]') ||
+            bookedFrom.isBetween(parsedNewFrom, parsedNewTo, null, '[]') ||
+            bookedTo.isBetween(parsedNewFrom, parsedNewTo, null, '[]')
+          ) {
+            console.log("Conflict detected!");
+          } else {
+            console.log("No conflict.");
+            availability = true;
+          }
+        }
+      } else {
+        console.log("No current bookings for this room.");
+
+      }
+      if (availability === true || room.currentBookings.length == 0) {
+        temprooms.push(room)
+      }
+
+ 
+    }
+   setRooms(temprooms)
+  };
+
+
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 
   return (
     <>
       <HeaderType2 />
 
+<<<<<<< HEAD
       <div className="room-main-section">
         <div className="search-section">
           <SearchCard sendDataToParent={handleDataFromChild} searchFilter={handleSearch} />
@@ -129,8 +215,32 @@ const Rooms = () => {
           )}
         </div>
       </div>
+=======
+
+      <div className="room-main-section">
+        <div className="search-section">
+          <SearchCard sendDataToParent={handleDataFromChild} />
+        </div>
+
+        <div className="roomcard-section">
+
+          {loading ? (<h1>Loading...</h1>) : error ? console.log(error) : (rooms.map((room) => {
+            return (
+              <RoomCard key={room._id} images={room.imageUrls} title={room.roomTitle} desc={room.description} max={room.maxCount} ph={room.phoneNumber} category={room.category} rent={room.rentPerDay} _id={room._id} fromDate={from} toDate={to} />
+            )
+          }))}
+
+
+        </div>
+      </div>
+
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
     </>
   )
 }
 
+<<<<<<< HEAD
 export default Rooms;
+=======
+export default Rooms
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984

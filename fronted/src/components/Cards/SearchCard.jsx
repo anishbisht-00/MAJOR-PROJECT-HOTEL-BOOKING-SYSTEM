@@ -5,10 +5,17 @@ const { RangePicker } = DatePicker;
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
+<<<<<<< HEAD
 const SearchCard = ({ sendDataToParent,searchFilter }) => {
   const [fromDate, setFromDate] = useState()
   const [toDate, setToDate] = useState()
   const [searchKey, setSearchKey] = useState("")
+=======
+const SearchCard = ({ sendDataToParent }) => {
+  const [fromDate, setFromDate] = useState()
+  const [toDate, setToDate] = useState()
+  
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
   
   const filterByDate = (dates) => {
     setFromDate(dates[0].format('DD-MM-YYYY')); // Format the moment object to a string
@@ -18,9 +25,13 @@ const SearchCard = ({ sendDataToParent,searchFilter }) => {
 
   useEffect(() => {
     sendDataToParent(fromDate,toDate)
+<<<<<<< HEAD
     searchFilter(searchKey)
     // console.log(searchKey)
   }, [fromDate, toDate, searchKey]);
+=======
+  }, [fromDate, toDate]);
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
   
 
   return (
@@ -35,6 +46,7 @@ const SearchCard = ({ sendDataToParent,searchFilter }) => {
             <RangePicker format='DD-MM-YYYY' onChange={filterByDate} />
           </div>
           <div className="search-box">
+<<<<<<< HEAD
             <input
             value={searchKey}
             onChange={
@@ -45,6 +57,16 @@ const SearchCard = ({ sendDataToParent,searchFilter }) => {
              type="text" placeholder='Search Rooms' />
           </div>
           
+=======
+            <input type="text" placeholder='Search Rooms' />
+          </div>
+          <div className="search-btn">
+            <Link to='/rooms' >
+            <button className='search-button'>Search</button>
+            </Link>
+            
+          </div>
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
         </div>
 
       </div>

@@ -90,6 +90,7 @@ hr{
 
 
 
+<<<<<<< HEAD
 
 /* left-section edit screen  */
 
@@ -103,6 +104,8 @@ hr{
     color: gray;
 }
 
+=======
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 /* right section styles */
 
 .right-section{
@@ -144,6 +147,7 @@ h2{
     font-weight: 700;
 }
 
+<<<<<<< HEAD
 .user-info > button{
     border: none;
    
@@ -155,4 +159,15 @@ h2{
 
     font-size: 1.125rem;
     font-weight: 500;
+=======
+.get-admin-access > button{
+    border: none;
+    margin: auto;
+    padding: 9px 6px;
+    border-radius: 6px;
+    color: white;
+    background: #026455;
+    height: 100%;
+    width: 50%;
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 }

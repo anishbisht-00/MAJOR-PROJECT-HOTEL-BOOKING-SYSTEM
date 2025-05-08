@@ -3,7 +3,11 @@ import axios from 'axios';
 import { data, useParams } from 'react-router-dom';
 import './BookingCard.css'
 import moment from 'moment';
+<<<<<<< HEAD
 import StripeCheckout from 'react-stripe-checkout';
+=======
+
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
 
 
 const BookingCard = () => {
@@ -48,12 +52,18 @@ const BookingCard = () => {
 
 
 
+<<<<<<< HEAD
 
 
 
     const onToken = async(token) => {
         const bookingDetails = {
             token,
+=======
+    const bookRoom = async () => {
+
+        const bookingDetails = {
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
             room,
             userid: JSON.parse(localStorage.getItem('currentUser'))._id,
             fromDate,
@@ -67,9 +77,15 @@ const BookingCard = () => {
             alert('Room Booked Successfully')
             window.location.href = '/user-profile'
         } catch (error) {
+<<<<<<< HEAD
             alert("Something Went Wrong Please Try Again Later")
         }
         
+=======
+
+        }
+
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
     }
     return (
         <>
@@ -124,6 +140,7 @@ const BookingCard = () => {
                             <span>₹/-</span>
                         </div>
                         <div className="booking-card-payment-button">
+<<<<<<< HEAD
 
                             <StripeCheckout
                                 amount={totalAmount * 100}
@@ -133,6 +150,9 @@ const BookingCard = () => {
                             >
                                 <button> Pay Now</button>
                             </StripeCheckout>
+=======
+                            <button onClick={bookRoom}> Pay Now</button>
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
                         </div>
 
 

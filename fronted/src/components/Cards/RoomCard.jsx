@@ -18,7 +18,10 @@ const RoomCard = (props) => {
         <img src={props.images[0]} alt="" />
         <div className="room-info">
           <div className="room-title"> {props.title} </div>
+<<<<<<< HEAD
           <div className="room-location"> {props.location} </div>
+=======
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
           <div className="room-description"> {props.desc} </div>
           <div className="rate">  <span className='blue'>{props.rent}</span> <span className='gray txt-1'> ₹/Night</span> </div>
           <div className="max-count">Max Guests :  {props.max} </div>

@@ -5,7 +5,10 @@ import axios from 'axios'
 
 const UserBookingCard = (props) => {
     console.log(props)
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
     const cancelButtonHandler = async (bookingId, roomId) => {
         console.log("booking id ", bookingId,", room id ",roomId)
         
@@ -21,6 +24,7 @@ const UserBookingCard = (props) => {
         }
     };
     
+<<<<<<< HEAD
     useEffect(() => {
   const markExpiredBookings = async () => {
     try {
@@ -33,6 +37,8 @@ const UserBookingCard = (props) => {
   markExpiredBookings();
 }, []);
 
+=======
+>>>>>>> e6ceb427f0c19f12d026c9a0190b998a6271a984
     return (
         <>
             <div className="user-booking-card-container">
