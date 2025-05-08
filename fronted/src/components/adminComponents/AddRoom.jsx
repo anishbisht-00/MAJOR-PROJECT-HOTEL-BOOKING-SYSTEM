@@ -6,6 +6,7 @@ import axios from 'axios'
 const AddRoom = () => {
 
   const [roomTitle, setRoomTitle] = useState('')
+  const [location, setLocation] = useState('')
   const [rentPerDay, setRentPerDay] = useState(0)
   const [maxCount, setMaxCount] = useState(0)
   const [description, setDescription] = useState('')
@@ -20,6 +21,7 @@ const AddRoom = () => {
 
     const newroom = {
       roomTitle,
+      location,
       rentPerDay,
       maxCount,
       description,
@@ -59,6 +61,16 @@ const AddRoom = () => {
                 setRoomTitle(e.target.value)
               }}
               type="text" placeholder='Enter Name of Hotel Room' />
+          </div>
+
+          <div className="room-name">
+            <span>Address : </span>
+            <input
+              value={location}
+              onChange={(e) => {
+                setLocation(e.target.value)
+              }}
+              type="text" placeholder='Enter Address of Hotel Room' />
           </div>
 
           <div className="rentperday">

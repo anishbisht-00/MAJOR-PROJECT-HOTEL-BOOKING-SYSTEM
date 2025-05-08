@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const UserBookingCard = (props) => {
     console.log(props)
+
     const cancelButtonHandler = async (bookingId, roomId) => {
         console.log("booking id ", bookingId,", room id ",roomId)
         
@@ -20,6 +21,18 @@ const UserBookingCard = (props) => {
         }
     };
     
+    useEffect(() => {
+  const markExpiredBookings = async () => {
+    try {
+      await axios.put('/api/bookings/expire');
+    } catch (error) {
+      console.error('Failed to mark expired bookings:', error);
+    }
+  };
+
+  markExpiredBookings();
+}, []);
+
     return (
         <>
             <div className="user-booking-card-container">

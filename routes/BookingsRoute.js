@@ -5,7 +5,7 @@ const Room = require('../models/Room')
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-
+const moment = require('moment');
 
 
 router.post("/bookroom", async (req, res) => {
@@ -51,7 +51,7 @@ router.post("/bookroom", async (req, res) => {
                 toDate,
                 totalAmount,
                 totalDays,
-                transactionId: '1234'
+                transactionId: payment.id
             })
 
             const booking = await newBooking.save()
@@ -80,6 +80,28 @@ router.post("/getbookingsbyuserid", async (req, res) => {
     }
 })
 
+router.put('/expire', async (req, res) => {
+    try {
+      const today = moment().startOf('day');
+  
+      // Find bookings where toDate has passed and status is still 'booked'
+      const expiredBookings = await Booking.find({
+        toDate: { $lt: today.format('DD-MM-YYYY') },
+        roomStatus: 'booked',
+      });
+  
+      // Update their status to 'bookingExpired'
+      for (const booking of expiredBookings) {
+        booking.roomStatus = 'bookingExpired';
+        await booking.save();
+      }
+  
+      res.status(200).json({ message: 'Expired bookings updated successfully', count: expiredBookings.length });
+    } catch (error) {
+      console.error('Error updating expired bookings:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
 
 router.post('/cancelbooking', async (req, res) => {
     const { bookingid, roomid } = req.body;

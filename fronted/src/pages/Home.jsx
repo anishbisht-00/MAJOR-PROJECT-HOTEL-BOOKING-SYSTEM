@@ -9,17 +9,22 @@ const Home = () => {
 
   const [from, setFrom] = useState()
   const [to, setTo] = useState()
-
+  const [searchKey, setSearchKey] = useState('')
+  
   const handleDataFromChild = (newFrom, newTo) => {
     setFrom(newFrom);
     setTo(newTo);
   }
+  const handleSearch = (key) => {
+    setSearchKey(key);
+    // filterRooms(key, from, to); // Filter rooms when search key changes
+  };
   return (
     <>
       <HeroSection />
       {/* seach card */}
       <div className='home-search'>
-        <SearchCard sendDataToParent={handleDataFromChild} />
+        <SearchCard sendDataToParent={handleDataFromChild} searchFilter={handleSearch} />
       </div>
 
 

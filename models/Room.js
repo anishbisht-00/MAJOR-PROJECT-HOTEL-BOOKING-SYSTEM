@@ -5,6 +5,10 @@ const roomSchema = mongoose.Schema({
         type: String,
         required: [true, 'Room title is required'], // Validation
     },
+    location: {
+        type: String,
+        required: [true, 'Room title is required']
+    },
     maxCount: {
         type: Number,
         required: [true, 'Maximum count of guests is required']

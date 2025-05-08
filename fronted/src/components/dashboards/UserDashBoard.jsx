@@ -247,6 +247,7 @@ const UserDashBoard = () => {
                       key={booking._id}
                       bookingId={booking._id}
                       room={booking.room}
+
                       transactionId={booking.transactionId}
                       inDate={booking.fromDate}
                       outDate={booking.toDate}
@@ -268,6 +269,31 @@ const UserDashBoard = () => {
             {
               bookings.map(booking => {
                 if (booking.roomStatus === 'cancelled') {
+                  return (
+                    <UserBookingCard
+                      key={booking._id}
+                      bookingId={booking._id}
+                      room={booking.room}
+                      transactionId={booking.transactionId}
+                      inDate={booking.fromDate}
+                      outDate={booking.toDate}
+                      totalAmount={booking.totalAmount}
+                      bookingStatus={booking.roomStatus}
+                      roomid={booking.roomid}
+                    />
+                  );
+                }
+                return null; // Return null if the condition is not met
+              })
+            }
+          </div>
+
+          {/* Previous bookings */}
+          <div className="previous-bookings">
+            <h2>Previous Bookings</h2>
+            {
+              bookings.map(booking => {
+                if (booking.roomStatus === 'bookingExpired') {
                   return (
                     <UserBookingCard
                       key={booking._id}
